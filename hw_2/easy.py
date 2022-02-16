@@ -2,7 +2,7 @@ def get_tex_row(row):
     return ' & '.join(map(str, row))
 
 
-def get_tex_table(table):
+def get_table_tex(table):
     return '''
     \\begin{{center}}
         \\begin{{tabular}}{{{cs}}}
@@ -19,7 +19,7 @@ def get_tex_table(table):
 
 def get_document_tex(content):
     return '''\\documentclass{{letter}}
-
+\\usepackage{{graphicx}}
 \\begin{{document}}
 {content}
 \\end{{document}}
@@ -38,6 +38,6 @@ if __name__ == '__main__':
 
     assert all(map(equal_len, table)), f'wrong table with {columns} columns and {rows} rows'
 
-    document_tex = get_document_tex(get_tex_table(table))
+    document_tex = get_document_tex(get_table_tex(table))
     with open('artifacts/easy.tex', 'w') as f:
         f.write(document_tex)
