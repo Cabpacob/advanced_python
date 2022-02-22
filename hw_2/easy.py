@@ -36,7 +36,8 @@ if __name__ == '__main__':
     def equal_len(row):
         return len(row) == columns
 
-    assert all(map(equal_len, table)), f'wrong table with {columns} columns and {rows} rows'
+    if not all(map(equal_len, table)):
+        raise KeyError(f'wrong table with {columns} columns and {rows} rows')
 
     document_tex = get_document_tex(get_table_tex(table))
     with open('artifacts/easy.tex', 'w') as f:
