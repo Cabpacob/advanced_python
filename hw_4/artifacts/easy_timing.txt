@@ -1,0 +1,3 @@
+current thread: 3.0251924991607666 s
+multithreading: 4.631695985794067 s
+multipriocessing: 0.6587016582489014 s
