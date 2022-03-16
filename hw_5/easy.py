@@ -14,17 +14,16 @@ async def download_image(url, session, path):
 async def main(folder, images_number):
     url = 'https://picsum.photos/200/300'
     async with aiohttp.ClientSession() as session:
-        tasks = []
-        for i in range(images_number):
-            tasks.append(
-                asyncio.create_task(
-                    download_image(
-                        url,
-                        session,
-                        os.path.join(folder, f'image_{i + 1}.jpg')
-                    )
+        tasks = [
+            asyncio.create_task(
+                download_image(
+                    url,
+                    session,
+                    os.path.join(folder, f'image_{i + 1}.jpg')
                 )
             )
+            for i in range(images_number)
+        ]
         await asyncio.gather(*tasks)
 
 
