@@ -171,9 +171,5 @@ class Bot:
 
 
     async def do_work(self):
-        # print('I do work')
-        # while True:
         await self.__bot.polling(none_stop=True)
-        # await asyncio.sleep(1)
-        # print('I undo work')
 

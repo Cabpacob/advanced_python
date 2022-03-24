@@ -1,6 +1,5 @@
 import asyncpg
 import asyncio
-# from asyncpg.extras import DictCursor
 
 
 class UserConfig:
@@ -71,12 +70,10 @@ class UserConfig:
 
 class Database:
     def __init__(self):
-        # await self.__create_tables()
         pass
 
     async def create_tables(self):
         connection = await asyncpg.connect(database='yandex_realty_bot_db', user='yandex_realty_bot', host='localhost', password='botbot')
-            # connection.autocommit = True
         await connection.execute(
             '''
                 CREATE TABLE IF NOT EXISTS UserConfigs (
