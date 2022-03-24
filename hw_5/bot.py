@@ -171,5 +171,5 @@ class Bot:
 
 
     async def do_work(self):
-        await self.__bot.polling(none_stop=True)
+        await self.__bot.polling(none_stop=True, interval=1)
 
